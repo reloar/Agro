@@ -1,0 +1,74 @@
+  <div class="view jarallax" style="background-image: url('../../../assets/images/market.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-4 white-text text-center">
+            <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 wow fadeInDown"
+                data-wow-delay="0.3s">
+              <strong>AGROVESTO</strong>
+            </h1>
+            <hr class="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s">
+            <h5 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s">
+              <strong>
+              Buy & Sell Farm Produce
+              </strong>
+            </h5>
+            <a mdbBtn color="white" outline="true" mdbWavesEffect class="wow fadeInDown" data-wow-delay="0.4s" routerLink="/product">portfolio</a>
+            <a mdbBtn color="white" outline="true" mdbWavesEffect class="wow fadeInDown" data-wow-delay="0.4s" routerLink="/about">About me</a>
+          </div>        
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+    <section class="team-section text-center my-5">
+      <h2 class="h1 py-5">Available goods</h2>
+
+      <p class="grey-text mb-5">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam
+        iure
+        provident voluptate esse quasi,
+        veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.
+      </p>
+<!-- Card -->
+<div class="row">
+    <div class="col-md-4" *ngFor="let item of products">
+        <mdb-card  >
+          <div class="thumbnail"><img src="{{item.photoUrl}}" alt="{{item.productName}}" > 
+          </div>
+          <div class="mask">
+                <h4>{{item.productName}}</h4>
+                <mdb-card-text>#{{item.price}} per kg
+                  </mdb-card-text>
+                  <button mdbBtn color="primary" mdbWavesEffect (click)=" getProduct(item.productId)">Buy</button>
+                  <!-- <a [routerLink]="['/market/', item.productId]" mdbBtn color="primary" mdbWavesEffect>Buy</a> -->
+            </div>
+           
+          </mdb-card>
+    </div>
+</div>
+
+
+  <!-- Card -->
+      <!-- <div class="row">
+          
+        <div class="col-lg-4 col-md-6 mb-3" *ngFor="let item of products">       
+          <mdb-card class="align-items-center">  
+            <div class="view overlay waves-light" mdbWavesEffect>
+              <mdb-card-img src="{{item.photoUrl}}" alt="{{item.productName}}"></mdb-card-img> 
+              <h5>{{item.productName}}</h5>                       
+                <h4 class="font-weight-bold blue-text">
+                  <strong>#{{item.price}} per kg</strong>
+                </h4>
+                <a class="grey-text" [routerLink]="['/']" >
+                 Buy
+                </a>    
+            </div>                 
+          </mdb-card> 
+      
+        </div> 
+      </div>   -->
+    </section>
+    
+<app-features></app-features>
+<app-team></app-team>

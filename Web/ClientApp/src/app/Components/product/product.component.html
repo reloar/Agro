@@ -1,0 +1,47 @@
+<div >
+  <div >
+          <div >
+        <div class="text-center">
+          <h4 class="w-100 font-weight-bold">Add Product</h4>
+          
+        </div>
+        <form [formGroup]="form"  (ngSubmit)="addProduct()">
+
+        <div class="mx-3">
+          <div class="md-form mb-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="text" formControlName="productName" class="form-control validate" mdbInput>
+            <input type="hidden" value="userId" formControlName="userId" >
+            <label data-error="wrong" data-success="right" for="form34">Product Name</label>
+          </div>
+
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="text" formControlName="quantity" class="form-control validate" mdbInput>
+            <label data-error="wrong" data-success="right" for="form29">Quantity</label>
+          </div>
+
+          <div class="md-form mb-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="text" formControlName="price" class="form-control validate" mdbInput>
+            <label data-error="wrong" data-success="right" for="form34">Price</label>
+          </div>
+          <div class="md-form mb-5">
+              <i class="fas fa-user prefix grey-text"></i>
+              <input type="text" formControlName="photoUrl" class="form-control validate" mdbInput>
+              <label data-error="wrong" data-success="right" for="form34">PhotoUrl</label>
+            </div>
+         
+        </div>
+        <div class="d-flex justify-content-center">
+          <button mdbBtn color="success" class="waves-light" mdbWavesEffect (click)="addProduct()">
+            Send
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+        </div> 
+      </form>
+      </div>
+   
+   
+  </div>
+</div>

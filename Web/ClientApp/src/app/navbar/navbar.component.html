@@ -1,0 +1,179 @@
+
+<header>
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+    <mdb-navbar-brand>
+      <a class="logo navbar-brand waves-light" mdbWavesEffect href="#">
+      <!-- <img src="../../../assets/images/logo.jpeg" />  -->
+      </a>
+    </mdb-navbar-brand>
+    <links>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active waves-light" mdbWavesEffect>
+          <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link" routerLink="/contact" >Contact Us</a>
+        </li>
+        <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link" routerLink="/howitworks" >How it works</a>
+        </li>
+       
+        <li class="nav-item dropdown" dropdown>
+          <a dropdownToggle mdbWavesEffect class="nav-link dropdown-toggle waves-light" mdbWavesEffect >
+            Market Place<span class="caret"></span>
+          </a>
+          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Buy</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Sell</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Support</a>
+
+            <div class="divider dropdown-divider"></div>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
+          </div>
+        </li>
+      </ul>
+      <!--<form class="form-inline">
+        <div class="md-form my-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        </div>
+      </form>-->
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#basicExample" (click)="SignUp.show()">
+            Sign Up
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#basicExample"
+             (click)="loginModal.show()">
+            Login
+          </a>
+        </li>
+       
+       <li class="nav-item dropdown" dropdown>
+          <a dropdownToggle mdbWavesEffect class="nav-link dropdown-toggle waves-light" mdbWavesEffect >
+            Welcome <span class="caret"> {{authService.userName}}</span>
+          </a>
+          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/advertiser/profile">View Profile</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect (click)="onLogoutClicked()">Log out</a>
+
+            <div class="divider dropdown-divider"></div>
+           
+          </div>
+        </li>        
+      </ul>
+    </links>
+  </mdb-navbar>
+</header>
+
+<!--SignUp-->
+<div mdbModal #SignUp="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form [formGroup]="form"  (ngSubmit)="RegisterUser()">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Register</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="SignUp.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="text" class="form-control validate" formControlName="FirstName" mdbInput>
+            <label data-error="wrong" data-success="right" for="form34">First Name</label>
+          </div>
+
+          <div class="md-form mb-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="text" class="form-control validate" formControlName="LastName" mdbInput>
+            <label data-error="wrong" data-success="right" for="form34">Last Name</label>
+          </div>
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="email" class="form-control validate" mdbInput formControlName="Email">
+            <label data-error="wrong" data-success="right" for="form29">Your email</label>
+          </div>
+
+          <div class="md-form mb-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="text" class="form-control validate" mdbInput formControlName="PhoneNumber">
+            <label data-error="wrong" data-success="right" for="form34">Phone Number</label>
+          </div>         
+
+          <div class="md-form mb-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="password" class="form-control validate" mdbInput formControlName="Password">
+            <label data-error="wrong" data-success="right" for="form34">Password</label>
+          </div>
+
+          <div class="md-form mb-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="password" class="form-control validate" mdbInput formControlName="ConfirmPassword">
+            <label data-error="wrong" data-success="right" for="form34">Confirm Password</label>
+          </div>
+
+          <div class="md-form mb-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <select class="browser-default custom-select" formControlName="RegistrationType">
+              <option *ngFor="let regivalue of RegistrationType" value="{{ regivalue }}">
+                {{ regivalue }}
+              </option>
+            </select>
+          </div>        
+         
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button mdbBtn color="success" class="waves-light" mdbWavesEffect>
+            Send
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+   
+  </div>
+</div>
+
+<!--login-->
+
+<div mdbModal #loginModal="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Login</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="loginModal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="email"  class="form-control validate"
+                   mdbInput formControlName="email">
+            <label data-error="wrong" data-success="right" for="form3">Email Address</label>
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="password"  class="form-control validate"
+                   mdbInput formControlName="password" type="password">
+            <label data-error="wrong" data-success="right" for="form2">Password</label>
+          </div>
+
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button mdbBtn color="success" class="waves-light" mdbWavesEffect>
+            Send
+            <i class="far fa-paper-plane ml-1"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  
+  </div>
+</div>

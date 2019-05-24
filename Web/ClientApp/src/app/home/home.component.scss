@@ -1,0 +1,59 @@
+/* Required for full background image */
+
+html,
+body,
+.view {
+  min-height: 100vh !important;
+}
+
+@media (max-width: 740px) {
+  html,
+  body,
+  .view {
+    height: 100vh;
+  }
+}
+
+/*.top-nav-collapse {
+  background-color: #78909c !important;
+}
+
+.navbar:not(.top-nav-collapse) {
+  background: transparent !important;
+}
+
+@media (max-width: 991px) {
+  .navbar:not(.top-nav-collapse) {
+    background: #78909c !important;
+  }
+}*/
+@media (min-width: 768px){
+.col-md-4 {
+    
+    max-width: 30%;
+    max-height: auto;
+}
+}
+.thumbnail img {
+  height:250px;
+  width:100%;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 15px;
+  margin-left: 15px;
+  height: auto;
+}
+h1 {
+  letter-spacing: 8px;
+}
+
+h5 {
+  letter-spacing: 3px;
+}
+
+.hr-light {
+  border-top: 3px solid #fff;
+  width: 80px;
+}
