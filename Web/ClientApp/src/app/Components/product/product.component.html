@@ -1,17 +1,17 @@
-<div >
-  <div >
-          <div >
-        <div class="text-center">
-          <h4 class="w-100 font-weight-bold">Add Product</h4>
-          
-        </div>
-        <form [formGroup]="form"  (ngSubmit)="addProduct()">
+<!--<div>
+  <div>
+    <div>
+      <div class="text-center">
+        <h4 class="w-100 font-weight-bold">Add Product</h4>
+
+      </div>
+      <form [formGroup]="form" (ngSubmit)="addProduct()">
 
         <div class="mx-3">
           <div class="md-form mb-5">
             <i class="fas fa-user prefix grey-text"></i>
             <input type="text" formControlName="productName" class="form-control validate" mdbInput>
-            <input type="hidden" value="userId" formControlName="userId" >
+            <input type="hidden" value="userId" formControlName="userId">
             <label data-error="wrong" data-success="right" for="form34">Product Name</label>
           </div>
 
@@ -27,21 +27,85 @@
             <label data-error="wrong" data-success="right" for="form34">Price</label>
           </div>
           <div class="md-form mb-5">
-              <i class="fas fa-user prefix grey-text"></i>
-              <input type="text" formControlName="photoUrl" class="form-control validate" mdbInput>
-              <label data-error="wrong" data-success="right" for="form34">PhotoUrl</label>
-            </div>
-         
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="text" formControlName="photoUrl" class="form-control validate" mdbInput>
+            <label data-error="wrong" data-success="right" for="form34">PhotoUrl</label>
+          </div>
+
         </div>
         <div class="d-flex justify-content-center">
           <button mdbBtn color="success" class="waves-light" mdbWavesEffect (click)="addProduct()">
             Send
             <i class="far fa-paper-plane ml-1"></i>
           </button>
-        </div> 
+        </div>
       </form>
-      </div>
-   
-   
+    </div>
+
+
   </div>
+</div>-->
+
+
+<div class="main-wrapper">
+  <div class="wrapper" style="background:#fff;padding:24px;height: 100%;">
+    <form [formGroup]="form" (ngSubmit)="addProduct()">
+      <nz-form-item>
+        <nz-form-label>Product Name</nz-form-label>
+        <nz-form-control>
+          <input nz-input nzSize="large" nzSize="large" formControlName="productName"  />
+        </nz-form-control>
+      </nz-form-item>
+      <input type="hidden" formControlName="userId" value="userId" />
+      <nz-form-item>
+        <nz-form-label>Quantity</nz-form-label>
+        <nz-form-control>
+          <input nz-input nzSize="large" formControlName="quantity" placeholder="quantity" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label>Price</nz-form-label>
+        <nz-form-control>
+          <input nz-input nzSize="large" formControlName="price" placeholder="price per kg" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label>Upload Product Picture</nz-form-label>
+        <nz-form-control>
+          <input type="file" nz-input nzSize="large" formControlName="photoUrl" (change)="onFileChange($event)" />
+        </nz-form-control>
+      </nz-form-item>
+      <!--<nz-form-item>
+        <nz-form-label>Role</nz-form-label>
+        <nz-form-control>
+          <input nz-input nzSize="large" formControlName="roles" value="roles">
+        </nz-form-control>
+      </nz-form-item>-->
+      <div nz-row>
+        <div nz-col [nzSpan]="24" style="text-align: right;">
+          <button nz-button [nzType]="'primary'" [nzLoading]="isLoading">Save</button>
+          <button nz-button>Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <nz-card style="width:300px;" nzTitle="Key Information">
+    <p><strong> Full name:</strong> Provide your full name here e.g Lara Davis. </p>
+    <p> <strong>Email Address: </strong> This is your registered email address</p>
+    <p>
+      <strong>Company: </strong> Your brand and business matters to us. Include the name of your company e.g XYZ Blog
+    </p>
+    <p>
+      <strong>Phone Number: </strong>There might be a need to reach out to you. Provide an authentic phone number
+      e.g +2348090000000
+    </p>
+    <p> <strong>Role: </strong> This show your current role</p>
+    <p><strong> Bank: </strong> Select your bank from the dropbox </p>
+    <p>
+      <strong>Bank Account Number:</strong> Your bank account & bank details are highly required to enable you to
+      earn money from our platform
+    </p>
+
+    <p></p>
+  </nz-card>
 </div>

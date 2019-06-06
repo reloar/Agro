@@ -9,5 +9,6 @@ namespace Domain.Interface
         string getRegistrationType();
          Task<UserModel> FindUserbyEmail(string email);
         Task<UserModel> GetByUserId(string UserId);
+        Task<UserModel> UpdateUserProfile(UserModel model);
     }
 }

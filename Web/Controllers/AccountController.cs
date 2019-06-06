@@ -17,7 +17,7 @@ namespace Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountController : ControllerBase
+    public class AccountController : Controller
     {
         private readonly IConfiguration _config;
         private IUserRepository _userRepo;

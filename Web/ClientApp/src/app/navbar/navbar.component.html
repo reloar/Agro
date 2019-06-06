@@ -37,7 +37,7 @@
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
         </div>
       </form>-->
-      <ul class="navbar-nav ml-auto nav-flex-icons">
+      <ul *ngIf="!loggedIn()" class="navbar-nav ml-auto nav-flex-icons">
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#basicExample" (click)="SignUp.show()">
             Sign Up
@@ -49,13 +49,14 @@
             Login
           </a>
         </li>
-       
-       <li class="nav-item dropdown" dropdown>
+      </ul>
+      <ul *ngIf="loggedIn()" class="navbar-nav ml-auto nav-flex-icons">
+       <li  class="nav-item dropdown" dropdown>
           <a dropdownToggle mdbWavesEffect class="nav-link dropdown-toggle waves-light" mdbWavesEffect >
-            Welcome <span class="caret"> {{authService.userName}}</span>
+            Welcome <span class="caret"> {{authService.userName}}</span> 
           </a>
           <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-            <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/advertiser/profile">View Profile</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/user/profile">Update Profile</a>
             <a class="dropdown-item waves-light" mdbWavesEffect (click)="onLogoutClicked()">Log out</a>
 
             <div class="divider dropdown-divider"></div>

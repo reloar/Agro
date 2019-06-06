@@ -1,3 +1,4 @@
+import { BankService } from './Services/bank.service';
 import { ProductService } from './Services/product.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -19,6 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MarketComponent } from './market/market.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthenticationService } from './Services/authentication.service';
+import { CartService } from './Services/cart.service';
+import { ProfileComponent } from './Components/profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +35,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FeaturesComponent,
     AboutComponent,
     HowItWorksComponent,
-    MarketComponent
+    MarketComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [
     ProductService,
+    AuthenticationService,
+    CartService,
+    BankService,
     { provide: NZ_I18N, useValue: en_US },
   ],
   bootstrap: [AppComponent]

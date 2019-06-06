@@ -3,9 +3,20 @@ export class UserModel {
     email: string;
     verificationCode: string;
     grantType = 'password';
-    username = this.email;
+    username: string;
     password = '';
+    userId: string;
+    role: string;
+    fullName: string;
+    bankSortCode: string;
+    walletCodec: string;
+    contactAddress: string;
+    bankAccount: string;
+    subAccountName: string;
+
     }
+
+
 export class UserLogin {
         id: string;
         email: string;

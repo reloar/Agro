@@ -12,7 +12,7 @@ namespace Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductController : Controller
     {
         private readonly IProductRepository _productRepository;
         public ProductController(IProductRepository productRepository)

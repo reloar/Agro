@@ -1,109 +1,105 @@
 <div class="container">
-    
 
 
-    <div class="card-content collapse show">
-        <div class="card-body">
+  <div class="card-content collapse show">
+    <div class="card-body">
+      <div class="text-center row clearfix mb-2">
+        <div class="col-12">
+          <div class="bg-circ-img" style="border-radius: 50%; overflow: hidden; height: 80%; width: 50%; margin: auto;">
+            <img src="{{product.photoUrl}}" alt="" class="img-fluid">
+          </div>
+        </div>
+      </div>
+      <h3 class="text-center">NGN {{product.price}} / KG</h3>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-de mb-0">
+        <tbody>
+          <tr>
+            <td>Metric Tone Size</td>
+            <td><i class="icon-layers"></i> 1000 KG</td>
+          </tr>
+          <tr>
+            <td>Storage Fee / Month</td>
+            <td><i class="icon-layers"></i> NGN 1,000</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center;">
 
-            <div class="text-center row clearfix mb-2">
-              <div class="col-12">
-                <div class="bg-circ-img" style="border-radius: 50%; overflow: hidden; height: 80%; width: 50%; margin: auto;">
-                  <img src="{{product.photoUrl}}" alt="" class="img-fluid">
-                </div>
-              </div>
+              <!-- <button type="button" id="3" class="btn-gradient-secondary view_commodity">Trade Commodity</button>-->
+              <a class="nav-link" data-toggle="modal" data-target="#basicExample" (click)="frame.show()">
+                Trade Commodity
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form [formGroup]="buyForm" (ngSubmit)="Buy()">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">{{product.productName}}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-4">
+              <img src="{{product.photoUrl}}" alt="" class="img-fluid">
             </div>
-            <h3 class="text-center">NGN {{product.price}} / KG</h3>
-        </div>
-        <div class="table-responsive">
-              <table class="table table-de mb-0">                    
-                <tbody>
-                  <tr>
-                    <td>Metric Tone Size</td>
-                    <td><i class="icon-layers"></i> 1000 KG</td>
-                  </tr>
-                  <tr>
-                    <td>Storage Fee / Month</td>
-                    <td><i class="icon-layers"></i> NGN 1,000</td>                        
-                  </tr>
-                  <tr>
-                    <td colspan="2" style="text-align: center;">
-                        
-                        <!-- <button type="button" id="3" class="btn-gradient-secondary view_commodity">Trade Commodity</button>-->
-                        <a class="nav-link" data-toggle="modal" data-target="#basicExample" (click)="frame.show()"> 
-                            Trade Commodity
-                          </a>
-                    </td>                        
-                  </tr>                      
-                </tbody>
-              </table>
-        </div>
-    </div>
-   </div>
-  
-
-   <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
-   aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-dialog" role="document">
-     <form>
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">{{product.productName}}</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+            <div class="col-8">
+              <div class="md-form mb-5">
+                <i class="fas fa-user prefix grey-text"></i>
+                <input type="number" disabled class="form-control validate" formControlName="price" mdbInput value="{{product.price}}">
+                <label data-error="wrong" data-success="right" for="form34">Price</label>
               </div>
-              <div class="modal-body">
-                  <div class="row">
-                    <div class="col-4">
-                      <img src="{{product.photoUrl}}" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-8">
-                      <table class="table table-hover table-bordered">
-                        <thead>
-                          <tr>
-                            <th>Features</th>
-                            <th>Amout</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Price</td>
-                            <td><span id="storageP">- {{product.price}}</span></td>
-                          </tr>
-                          <tr>
-                            <td>Storage Fee / Monthly Charge</td>
-                            <td><span id="storageP" data-value="500">-</span></td>
-                          </tr>
-                          <tr>
-                            <td>Exchange Fee</td>
-                            <td><span id="exchange">-</span></td>
-                          </tr>
-                          <tr>
-                            <td>Select No. of MT</td>
-                            <td>
-                              <input type="number" id="qty" data-value="2" class="form-control" min="1" name="qty" placeholder="1" onchange="updateSub()">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>AgroVesto Charges</td>
-                            <td><span id="farmCharges">- 300</span></td>
-                          </tr>
-                          <tr>
-                            <td><strong>SUBTOTAL:</strong>{{(product.price * product.quantity)}}</td>
-                            <td><strong><span id="subtotalDisplay">-</span></strong></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="hidden" name="transaction_id" value="9JwQtYn5ULyFhx6">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" onclick="stockAdd();" class="btn btn-primary">Add to Basket</button>
-                  </div>
+              <div class="md-form mb-5">
+                <i class="fas fa-user prefix grey-text"></i>
+                <input type="number" disabled class="form-control validate" formControlName="storeCharge" mdbInput value="storeCharge">
+                <label data-error="wrong" data-success="right" for="form34">Storage Monthly Charge</label>
+              </div>
+
+
+              <div class="md-form mb-5">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input type="number" class="form-control validate" mdbInput formControlName="quantity">
+                <label data-error="wrong" data-success="right" for="form29">Quantity to purchase</label>
+              </div>
+              <div class="md-form mb-5">
+                <i class="fas fa-user prefix grey-text"></i>
+                <input type="number" disabled class="form-control validate" formControlName="charges" mdbInput value="charges">
+                <label data-error="wrong" data-success="right" for="form34">transaction charge</label>
+              </div>
+
+            
+              <div class="md-form mb-5">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input type="number" disabled class="form-control validate" mdbInput formControlName="total" value="price*quantity">
+                <label data-error="wrong" data-success="right" for="form29">Total</label>
+              </div>
+
+
+
+            </div>
+          </div>
         </div>
-     </form>
-   </div>
-     
-    </div>
+        <div class="modal-footer">
+          <!--<input type="hidden" name="transaction_id" value="9JwQtYn5ULyFhx6">-->
+          <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+          <button class="btn btn-primary">Add to Basket</button>
+          <!--<button type="button" (click)="stockAdd();" class="btn btn-primary">Add to Basket</button>-->
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

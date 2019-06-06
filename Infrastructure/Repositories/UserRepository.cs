@@ -19,12 +19,14 @@ namespace Infrastructure.Repositories
         private readonly UserManager<User> _userManager;
         private readonly INotificationUtility _notification;
         private readonly DbContext _context;
-        public UserRepository(IConfiguration config, INotificationUtility notification, UserManager<User> userManager, DbContext context)
+        private readonly RoleManager<Role> _roleManager;
+        public UserRepository(IConfiguration config, INotificationUtility notification, 
+        UserManager<User> userManager, DbContext context, RoleManager<Role> roleManager)
         {
             _config = config;
             _context = context;
             _userManager = userManager;
-
+            _roleManager = roleManager;
             _notification = notification;
         }
         public async Task<UserModel> FindUserbyEmail(string email)
@@ -87,6 +89,25 @@ namespace Infrastructure.Repositories
 
             }
             return (false, "Unable to create user");
+        }
+
+        public async Task<UserModel> UpdateUserProfile(UserModel model)
+        {
+            var user = await _context.Set<User>().FirstOrDefaultAsync(r => r.Id == model.userId);
+      
+            
+            if(user != null)
+            {
+                user.WalletCode = model.walletCodec;
+                user.BankAccountNumber = model.bankAccount;
+                user.Accountname = model.subAccountName;
+                user.ContactAddress=model.ContactAddress;                
+                await _context.SaveChangesAsync();
+            }
+            var returnedModel = new UserModel().Assign(user);
+            returnedModel.subAccountName = user.Accountname;
+            return returnedModel;
+
         }
     }
 }

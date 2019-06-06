@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { AuthenticationService } from '../Services/authentication.service';
 import { Router } from '@angular/router';
 import { Utility } from '../Services/utility';
+import { CartService } from '../Services/cart.service';
+import { UserModel } from '../Models/UserModel';
 
 @Component({
   selector: 'app-navbar',
@@ -17,12 +19,16 @@ export class NavbarComponent implements OnInit {
   submitted = false;
   error = '';
 
-
   form: FormGroup;
   public RegistrationType: any;
   constructor(private fb: FormBuilder, private message: NzMessageService,
               public authService: AuthenticationService,
-              private router: Router, ) { }
+              private router: Router, private cartService: CartService) { }
+
+  currentUser: UserModel = this.authService.currentUserId;
+
+
+
   ngOnInit() {
     this.getUserTypes();
     this.form = this.fb.group({
@@ -71,11 +77,8 @@ export class NavbarComponent implements OnInit {
   }
   get loginFunction() { return this.loginForm.controls; }
   login() {
-
     const userLogin = this.loginForm.value;
-    console.log(userLogin);
     this.authService.login(userLogin).subscribe((response) => {
-      this.loginForm.reset();
       if (response) {
         console.log(this.authService.decodedToken);
         this.message.success('login successful');
@@ -99,5 +102,11 @@ export class NavbarComponent implements OnInit {
 
   onLogoutClicked() {
     this.authService.logout();
+    this.message.info('logged out');
+    this.router.navigate(['/']);
+  }
+
+  loggedIn() {
+    return this.authService.decodedToken;
   }
 }

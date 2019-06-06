@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { JwtHelper } from './jwt-helper';
+// import { tokenNotExpired } from 'angular2-jwt';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
@@ -46,6 +47,11 @@ export class AuthenticationService {
         return user;
         }));
   }
+
+  get isLoggedIn(): boolean {
+    return this.currentUserId != null;
+  }
+
   GetUserType() {
     return this.httpClient.get(`${this.url + this.apiurl}/Account/register`)
      .pipe(
@@ -54,6 +60,9 @@ export class AuthenticationService {
   logout() {
     localStorage.removeItem('currentUser');
   }
+  // loggedIn() {
+  //   return tokenNotExpired('currentUser');
+  //  }
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       return throwError(

@@ -12,5 +12,10 @@ namespace Domain.Models
         public decimal price {get;set;}
         public decimal total {get;set;}
         public string userId{get;set;}
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string email { get; set; }
+        public string phone { get; set; }
+        public int amount { get; set; }
     }
 }

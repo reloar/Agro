@@ -1,7 +1,9 @@
 ﻿using Domain.Interface;
+using Domain.ServiceInterface;
 using Domain.Utilities;
 using Infrastructure;
 using Infrastructure.Repositories;
+using Infrastructure.Services.CyberPay;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +26,7 @@ namespace Web.Extensions
             services.AddScoped<IProductRepository, ProductRepository>();
 
             services.AddScoped<IUserRepository, UserRepository>();
+services.AddScoped<ICyberPay, CyberPayService>();
 
             services.AddScoped<INotificationUtility, NotificationRepository>();
 
