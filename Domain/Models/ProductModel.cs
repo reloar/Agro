@@ -12,6 +12,8 @@ namespace Domain.Models
         public decimal Price { get; set; }
         public bool Status { get; set; }
         public string PhotoUrl { get; set; }
+        public string description { get; set; }
+
         //public UserModel User { get; set; }
         public string UserId { get; set; }
     }

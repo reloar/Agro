@@ -8,6 +8,8 @@ namespace Domain.Models
         public string bankName { get; set; }
      
         public string BankCode { get; set; }
+        public string name { get; set; }
+        public string code { get; set; }
     
 
     }

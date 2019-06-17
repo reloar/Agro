@@ -25,23 +25,29 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CurrentuserId");
-
-                    b.Property<decimal>("IsSuccessful");
+                    b.Property<long>("OrderId");
 
                     b.Property<int>("OrderOption");
 
-                    b.Property<decimal>("PricePerUnit");
+                    b.Property<decimal>("TotalAmountPaid");
 
-                    b.Property<long>("ProductId");
+                    b.Property<string>("buyerContact");
 
-                    b.Property<int>("Quantity");
+                    b.Property<string>("callbackUrl");
 
-                    b.Property<decimal>("StorePrice");
+                    b.Property<decimal>("currentPriceAtPurchase");
 
-                    b.Property<decimal>("Total");
+                    b.Property<string>("deliveryAddress");
 
-                    b.Property<decimal>("TransactionFee");
+                    b.Property<string>("productBuyerId");
+
+                    b.Property<long>("productId");
+
+                    b.Property<string>("productOwnerId");
+
+                    b.Property<int>("quantityBought");
+
+                    b.Property<string>("reference");
 
                     b.HasKey("Id");
 

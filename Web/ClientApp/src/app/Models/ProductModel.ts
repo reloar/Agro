@@ -2,9 +2,15 @@ export class ProductModel {
   price: number;
   productName: string;
   photoUrl: string;
-  quantity: string;
-  id: number;
+  quantity: number;
+  productId: number;
   userId: string;
+}
+
+
+export class Product {
+  product: ProductModel;
+  quantity: number;
 }
 export interface CartState {
 
@@ -22,4 +28,10 @@ export interface ProductOrderModel {
   buyerId: number;
   store: boolean;
   commission: number;
+}
+export interface ApiResponse<T> {
+  statusCode?: number | undefined;
+  message?: string | undefined;
+  data?: T | undefined;
+  errors?: string[] | undefined;
 }

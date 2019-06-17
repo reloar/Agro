@@ -1,0 +1,59 @@
+
+<nz-sider
+nzCollapsible
+[(nzCollapsed)]="isCollapsed"
+[nzBreakpoint]="'lg'"
+[nzCollapsedWidth]="0"
+[nzZeroTrigger]="zeroTrigger"
+[nzTheme]="'light'"
+style="width: 168px;"
+>
+<a href="/">
+  <img class="logo" src="../../../assets/images/logo.png" />
+</a>
+<ul
+  style="height: 100%"
+  nz-menu
+  [nzTheme]="'light'"
+  [nzMode]="'inline'"
+  [nzInlineCollapsed]="isCollapsed"
+>
+  <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+      <a class="side-links" routerLink="/marketplace">
+    <span
+      ><i nz-icon type="home"></i
+      ><span class="nav-text">Marketplace</span></span
+    >
+    </a>
+  </li>
+  <!-- <li nz-menu-item>
+    <span
+      ><i nz-icon type="appstore"></i
+      ><span class="nav-text">My Ads</span></span
+    >
+  </li> -->
+  <!-- <li nz-menu-item>
+    <span
+      ><i nz-icon type="credit-card"></i
+      ><span class="nav-text">Payments</span></span
+    >
+  </li> -->
+  <!-- <li nz-menu-item>
+    <span
+      ><i nz-icon type="line-chart"></i
+      ><span class="nav-text">Reports</span></span
+    >
+  </li> -->
+  <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+      <a class="side-links" routerLink="/advertiser/profile">
+      <span
+        ><i nz-icon type="user"></i
+        ><span class="nav-text">Profile</span></span
+      >
+      </a>
+    </li>
+</ul>
+</nz-sider>
+<ng-template #zeroTrigger>
+  <i nz-icon type="menu-fold" theme="outline"></i>
+</ng-template>

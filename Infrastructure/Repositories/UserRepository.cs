@@ -40,9 +40,13 @@ namespace Infrastructure.Repositories
             return response;
         }
 
-        public Task<UserModel> GetByUserId(string UserId)
+        public async Task<UserModel> GetByUserId(string UserId)
         {
-            throw new System.NotImplementedException();
+            var user = await _context.Set<User>().FirstOrDefaultAsync(x => x.Id == UserId);
+
+            var response = new UserModel().Assign(user);
+            response.walletCodec = user.WalletCode;
+            return response;
         }
 
         public string getRegistrationType()
@@ -101,11 +105,13 @@ namespace Infrastructure.Repositories
                 user.WalletCode = model.walletCodec;
                 user.BankAccountNumber = model.bankAccount;
                 user.Accountname = model.subAccountName;
-                user.ContactAddress=model.ContactAddress;                
+                user.ContactAddress=model.ContactAddress;         
+                
                 await _context.SaveChangesAsync();
             }
             var returnedModel = new UserModel().Assign(user);
             returnedModel.subAccountName = user.Accountname;
+            returnedModel.roles = model.roles;
             return returnedModel;
 
         }

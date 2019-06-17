@@ -1,0 +1,51 @@
+<nz-layout
+  style="min-height: 100%;display: grid;grid-template-columns: 168px auto;"
+>
+  <app-sidemenu></app-sidemenu>
+
+  <nz-layout>
+    <!-- <nz-header style="background: #fff; padding:0;">
+      <div class="icon-ends">
+          <ul
+          nz-menu
+          class="header-ul"
+          [nzTheme]="'light'"
+          [nzMode]="'horizontal'"
+          [nzSelectable]="false" 
+          style="line-height: 64px;align-items: stretch;"
+        >
+          <li nz-menu-item><a routerLink="/cart">
+            <nz-badge [nzCount]="cartCount">
+
+            <i nz-icon type="shopping-cart"></i
+          ></nz-badge></a></li>
+          <ul *ngIf="loggedIn()" class="navbar-nav ml-auto nav-flex-icons">
+            <li  class="nav-item dropdown" dropdown>
+               <a dropdownToggle mdbWavesEffect class="nav-link dropdown-toggle waves-light" mdbWavesEffect >
+                 Welcome <span class="caret"> {{authService.userName}}</span> 
+               </a>
+               <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                 <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/user/profile">Update Profile</a>
+                 <a class="dropdown-item waves-light" mdbWavesEffect (click)="onLogoutClicked()">Log out</a>
+     
+                 <div class="divider dropdown-divider"></div>
+                
+               </div>
+             </li>        
+           </ul>
+        </ul>
+      
+
+       
+        
+      </div>
+    </nz-header> -->
+    <nz-content style="margin:4px 14px 0;padding:14px;">
+      <div style="">
+        <div style="width: 100%;">
+          <ng-content></ng-content>
+        </div>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

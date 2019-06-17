@@ -3,7 +3,6 @@
   <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
     <mdb-navbar-brand>
       <a class="logo navbar-brand waves-light" mdbWavesEffect href="#">
-      <!-- <img src="../../../assets/images/logo.jpeg" />  -->
       </a>
     </mdb-navbar-brand>
     <links>
@@ -32,11 +31,7 @@
           </div>
         </li>
       </ul>
-      <!--<form class="form-inline">
-        <div class="md-form my-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        </div>
-      </form>-->
+     
       <ul *ngIf="!loggedIn()" class="navbar-nav ml-auto nav-flex-icons">
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#basicExample" (click)="SignUp.show()">

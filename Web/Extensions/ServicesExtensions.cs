@@ -26,7 +26,8 @@ namespace Web.Extensions
             services.AddScoped<IProductRepository, ProductRepository>();
 
             services.AddScoped<IUserRepository, UserRepository>();
-services.AddScoped<ICyberPay, CyberPayService>();
+            //services.AddScoped<ICyberPay, CyberPayService>();
+            services.AddScoped<ICyberPay, PayStackService>();
 
             services.AddScoped<INotificationUtility, NotificationRepository>();
 

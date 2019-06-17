@@ -15,7 +15,8 @@
             </h5>
             <a mdbBtn color="white" outline="true" mdbWavesEffect class="wow fadeInDown" data-wow-delay="0.4s" routerLink="/product">portfolio</a>
             <a mdbBtn color="white" outline="true" mdbWavesEffect class="wow fadeInDown" data-wow-delay="0.4s" routerLink="/about">About me</a>
-          </div>        
+          </div>   
+               
         </div>
       </div>
     </div>
@@ -31,6 +32,34 @@
         veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.
       </p>
 <!-- Card -->
+<!-- <nz-table nzSize="large" [nzData]="products">
+  <thead>
+    <tr>
+      <th>Product Id</th>
+      <th>Product Name</th>
+      <th>Price</th>
+      <th>PhotoUrl</th>
+      <th>Available Quantity</th>
+      <th>Buy </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of products">
+      <td scope="row" type="hidden">{{item.productId}}</td>
+      <td>{{ item.productName }}</td>
+      <td>{{ item.price }}</td>
+      <td>
+          <img src="{{item.photoUrl}}" alt="{{item.productName}}" width="50"> 
+       
+      </td>
+      <td>{{ item.quantity }}</td>
+      <td>
+          <button mdbBtn color="primary" mdbWavesEffect (click)=" getProduct(item.productId)">Buy</button>
+               
+      </td>
+    </tr>
+  </tbody>
+</nz-table> -->
 <div class="row">
     <div class="col-md-4" *ngFor="let item of products">
         <mdb-card  >
@@ -41,8 +70,7 @@
                 <mdb-card-text>#{{item.price}} per kg
                   </mdb-card-text>
                   <button mdbBtn color="primary" mdbWavesEffect (click)=" getProduct(item.productId)">Buy</button>
-                  <!-- <a [routerLink]="['/market/', item.productId]" mdbBtn color="primary" mdbWavesEffect>Buy</a> -->
-            </div>
+                       </div>
            
           </mdb-card>
     </div>

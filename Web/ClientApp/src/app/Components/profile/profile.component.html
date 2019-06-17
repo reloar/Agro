@@ -1,4 +1,4 @@
-
+<app-maincontent>
   <div class="main-wrapper">
     <div class="wrapper" style="background:#fff;padding:24px;height: 100%;">
       <form [formGroup]="updateForm" (ngSubmit)="done()">
@@ -14,7 +14,7 @@
         <nz-form-item>
           <nz-form-label>Contact Address</nz-form-label>
           <nz-form-control> 
-            <input nz-input nzSize="large" formControlName="contactAddress" placeholder="email" />
+            <input nz-input nzSize="large" formControlName="contactAddress" placeholder="Contact address" />
           </nz-form-control>
         </nz-form-item>
         <nz-form-item>
@@ -29,19 +29,20 @@
             <input nz-input nzSize="large" formControlName="subAccountName"  />
           </nz-form-control>
         </nz-form-item>
-        <nz-form-item>
+        <input type="hidden" formControlName="roles" value="roles" />
+        <!-- <nz-form-item> 
           <nz-form-label>Role</nz-form-label>
           <nz-form-control>
             <input nz-input nzSize="large" formControlName="roles" value="roles">
           </nz-form-control>
-        </nz-form-item>
+        </nz-form-item>  -->
 
         <nz-form-item>
           <nz-form-label>Bank</nz-form-label>
           <nz-form-control>
             <nz-select formControlName="bankSortCode" nzPlaceHolder="Choose your bank" nzAllowClear nzSize="large">
               <ng-container *ngFor="let bank of banks">
-                <nz-option [nzValue]="bank.value" [nzLabel]="bank.label"></nz-option>
+                <nz-option [nzValue]="bank.label" [nzLabel]="bank.label"></nz-option>
               </ng-container>
 
             </nz-select>
@@ -66,13 +67,10 @@
       </form>
     </div>
     <nz-card style="width:300px;" nzTitle="Key Information">
-      <p><strong> Full name:</strong> Provide your full name here e.g Lara Davis. </p>
+      <p><strong> User Name:</strong> Name that appears on your sign up. </p>
       <p> <strong>Email Address: </strong> This is your registered email address</p>
-      <p><strong>Company: </strong> Your brand and business matters to us. Include the name of your company e.g XYZ Blog
+      <p><strong>Contact Address: </strong> Your Contact address that can be reached e.g #1 xyz close
       </p>
-      <p> <strong>Phone Number: </strong>There might be a need to reach out to you. Provide an authentic phone number
-        e.g +2348090000000</p>
-      <p> <strong>Role: </strong> This show your current role</p>
       <p><strong> Bank: </strong> Select your bank from the dropbox </p>
       <p> <strong>Bank Account Number:</strong> Your bank account & bank details are highly required to enable you to
         earn money from our platform</p>
@@ -82,3 +80,5 @@
     </nz-card>
 
   </div>
+</app-maincontent>
+  

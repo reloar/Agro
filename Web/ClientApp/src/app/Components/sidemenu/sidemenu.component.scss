@@ -1,0 +1,27 @@
+.logo {
+    width: 120px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 24px 16px 24px;
+    float: left;
+  }
+  
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: rgb(241, 239, 246);
+  }
+  
+  .side-links {
+    color: rgba(0, 0, 0, 0.65);
+    transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  .side-links:hover {
+    color: #4d2960;
+  }
+  
+  .side-links::selection {
+    color: #4D2960;
+    border-right: 3px solid #4D2960;
+    background-color: rgb(241, 239, 246);
+  }

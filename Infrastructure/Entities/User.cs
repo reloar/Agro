@@ -15,6 +15,7 @@ namespace Infrastructure.Entities
         public string WalletCode { get; set; }
         public string UserType { get; set; }
         public string Accountname { get; set; }
+      //  public double percentage_charge { get; set; }
         public virtual ICollection<IdentityUserRole<string>> Roles { get; set; } = new List<IdentityUserRole<string>>();
         public bool IsDeleted { get; set; } = false;
         /// <summary>

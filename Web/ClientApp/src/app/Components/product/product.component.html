@@ -46,66 +46,68 @@
   </div>
 </div>-->
 
-
-<div class="main-wrapper">
-  <div class="wrapper" style="background:#fff;padding:24px;height: 100%;">
-    <form [formGroup]="form" (ngSubmit)="addProduct()">
-      <nz-form-item>
-        <nz-form-label>Product Name</nz-form-label>
-        <nz-form-control>
-          <input nz-input nzSize="large" nzSize="large" formControlName="productName"  />
-        </nz-form-control>
-      </nz-form-item>
-      <input type="hidden" formControlName="userId" value="userId" />
-      <nz-form-item>
-        <nz-form-label>Quantity</nz-form-label>
-        <nz-form-control>
-          <input nz-input nzSize="large" formControlName="quantity" placeholder="quantity" />
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-label>Price</nz-form-label>
-        <nz-form-control>
-          <input nz-input nzSize="large" formControlName="price" placeholder="price per kg" />
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-label>Upload Product Picture</nz-form-label>
-        <nz-form-control>
-          <input type="file" nz-input nzSize="large" formControlName="photoUrl" (change)="onFileChange($event)" />
-        </nz-form-control>
-      </nz-form-item>
-      <!--<nz-form-item>
-        <nz-form-label>Role</nz-form-label>
-        <nz-form-control>
-          <input nz-input nzSize="large" formControlName="roles" value="roles">
-        </nz-form-control>
-      </nz-form-item>-->
-      <div nz-row>
-        <div nz-col [nzSpan]="24" style="text-align: right;">
-          <button nz-button [nzType]="'primary'" [nzLoading]="isLoading">Save</button>
-          <button nz-button>Clear</button>
+<app-maincontent>
+  <div class="main-wrapper">
+    <div class="wrapper" style="background:#fff;padding:24px;height: 100%;">
+      <form [formGroup]="form" (ngSubmit)="addProduct()">
+        <nz-form-item>
+          <nz-form-label>Product Name</nz-form-label>
+          <nz-form-control>
+            <input nz-input nzSize="large" nzSize="large" formControlName="productName"  />
+          </nz-form-control>
+        </nz-form-item>
+        <input type="hidden" formControlName="userId" value="userId" />
+        <nz-form-item>
+          <nz-form-label>Quantity</nz-form-label>
+          <nz-form-control>
+            <input nz-input nzSize="large" formControlName="quantity" placeholder="quantity" />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label>Price</nz-form-label>
+          <nz-form-control>
+            <input nz-input nzSize="large" formControlName="price" placeholder="price per kg" />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label>Upload Product Picture</nz-form-label>
+          <nz-form-control>
+            <input type="file" nz-input nzSize="large" formControlName="photoUrl" (change)="onFileChange($event)" />
+          </nz-form-control>
+        </nz-form-item>
+        <!--<nz-form-item>
+          <nz-form-label>Role</nz-form-label>
+          <nz-form-control>
+            <input nz-input nzSize="large" formControlName="roles" value="roles">
+          </nz-form-control>
+        </nz-form-item>-->
+        <div nz-row>
+          <div nz-col [nzSpan]="24" style="text-align: right;">
+            <button nz-button [nzType]="'primary'" [nzLoading]="isLoading">Save</button>
+            <button nz-button>Clear</button> 
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
+    <nz-card style="width:300px;" nzTitle="Key Information">
+      <p><strong> Full name:</strong> Provide your full name here e.g Lara Davis. </p>
+      <p> <strong>Email Address: </strong> This is your registered email address</p>
+      <p>
+        <strong>Company: </strong> Your brand and business matters to us. Include the name of your company e.g XYZ Blog
+      </p>
+      <p>
+        <strong>Phone Number: </strong>There might be a need to reach out to you. Provide an authentic phone number
+        e.g +2348090000000
+      </p>
+      <p> <strong>Role: </strong> This show your current role</p>
+      <p><strong> Bank: </strong> Select your bank from the dropbox </p>
+      <p>
+        <strong>Bank Account Number:</strong> Your bank account & bank details are highly required to enable you to
+        earn money from our platform
+      </p>
+  
+      <p></p>
+    </nz-card>
   </div>
-  <nz-card style="width:300px;" nzTitle="Key Information">
-    <p><strong> Full name:</strong> Provide your full name here e.g Lara Davis. </p>
-    <p> <strong>Email Address: </strong> This is your registered email address</p>
-    <p>
-      <strong>Company: </strong> Your brand and business matters to us. Include the name of your company e.g XYZ Blog
-    </p>
-    <p>
-      <strong>Phone Number: </strong>There might be a need to reach out to you. Provide an authentic phone number
-      e.g +2348090000000
-    </p>
-    <p> <strong>Role: </strong> This show your current role</p>
-    <p><strong> Bank: </strong> Select your bank from the dropbox </p>
-    <p>
-      <strong>Bank Account Number:</strong> Your bank account & bank details are highly required to enable you to
-      earn money from our platform
-    </p>
+</app-maincontent>
 
-    <p></p>
-  </nz-card>
-</div>

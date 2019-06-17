@@ -54,6 +54,7 @@ export class NavbarComponent implements OnInit {
     this.authService.Register(user).subscribe(result => {
       if (result) {
         this.message.success('Registration successful');
+      
         this.router.navigate(['/'], { queryParams: { brandNew: true, email: user.Email } });
       }
     }, error => {
@@ -81,8 +82,10 @@ export class NavbarComponent implements OnInit {
     this.authService.login(userLogin).subscribe((response) => {
       if (response) {
         console.log(this.authService.decodedToken);
+        console.log(response);
         this.message.success('login successful');
-        this.router.navigate(['/']);
+      
+        this.router.navigate(['/user/profile']);
       }
         }, error => {
           if (Utility.checkNoNetwork(error)) {

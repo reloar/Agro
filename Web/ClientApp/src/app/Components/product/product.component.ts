@@ -53,24 +53,24 @@ constructor(private fb: FormBuilder, private productService: ProductService,
   addProduct() {
     const product = this.form.value;
     console.log(product);
-    //this.productService.AddProduct(product).subscribe(res => {
-    //  this.form.reset();
-    //  if(res) {
-    //    this.message.success('Product Added succesfully');
-    //  }
+    this.productService.AddProduct(product).subscribe(res => {
+     this.form.reset();
+     if(res) {
+       this.message.success('Product Added succesfully');
+     }
 
-    //}, error => {
-    //  if (Utility.checkNoNetwork(error)) {
-    //    // todo display error message for no network
-    //    this.message.error('Please check your network connection');
-    //  } else {
-    //    const errorMessage = Utility.findHttpResponseMessage('error_description', error);
-    //    if (errorMessage) {
-    //      this.message.error(errorMessage);
-    //    } else {
-    //      this.message.error('Could not add product to catalog');
-    //    }
-    //  }
-    //});
+    }, error => {
+     if (Utility.checkNoNetwork(error)) {
+       // todo display error message for no network
+       this.message.error('Please check your network connection');
+     } else {
+       const errorMessage = Utility.findHttpResponseMessage('error_description', error);
+       if (errorMessage) {
+         this.message.error(errorMessage);
+       } else {
+         this.message.error('Could not add product to catalog');
+       }
+     }
+    });
   }
 }

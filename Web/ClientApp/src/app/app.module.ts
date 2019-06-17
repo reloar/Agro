@@ -23,6 +23,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticationService } from './Services/authentication.service';
 import { CartService } from './Services/cart.service';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { MaincontentComponent } from './Components/maincontent/maincontent.component';
+import { SidemenuComponent } from './Components/sidemenu/sidemenu.component';
+import { Angular4PaystackModule } from 'angular4-paystack';
+import { PaystacktestComponent } from './paystacktest/paystacktest.component';
+import { StoreOrderComponent } from './Components/store-order/store-order.component';
+import { DeliverOrderComponent } from './Components/deliver-order/deliver-order.component';
+// import { SidemenuComponent } from './Components/sidemenu/sidemenu.component';
+// import { MainContentComponent } from './Components/main-content/main-content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +44,14 @@ import { ProfileComponent } from './Components/profile/profile.component';
     AboutComponent,
     HowItWorksComponent,
     MarketComponent,
-    ProfileComponent
+     ProfileComponent,
+     MaincontentComponent,
+     SidemenuComponent,
+     PaystacktestComponent,
+     StoreOrderComponent,
+     DeliverOrderComponent
+    // MainContentComponent,
+    // SidemenuComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +61,7 @@ import { ProfileComponent } from './Components/profile/profile.component';
     HttpClientModule,
     NgZorroAntdModule,
     BrowserAnimationsModule,
+    Angular4PaystackModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [

@@ -6,7 +6,7 @@ export class UserModel {
     username: string;
     password = '';
     userId: string;
-    role: string;
+    roles: string;
     fullName: string;
     bankSortCode: string;
     walletCodec: string;

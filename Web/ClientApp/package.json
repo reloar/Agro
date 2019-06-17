@@ -23,6 +23,7 @@
     "@types/chart.js": "^2.7.52",
     "angular-bootstrap-md": "^7.5.2",
     "angular2-jwt": "^0.2.3",
+    "angular4-paystack": "^2.3.3",
     "chart.js": "^2.5.0",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",

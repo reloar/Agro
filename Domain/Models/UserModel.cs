@@ -17,5 +17,7 @@ namespace Domain.Models
         public string bankSortCode { get; set; }
         public string walletCodec { get; set; }
         public string ContactAddress {get;set;}
+        public double percentage_charge { get; set; }
+        public string settlement_bank { get; set; }
     }
 }

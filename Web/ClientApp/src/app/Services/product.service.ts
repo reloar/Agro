@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient,  HttpErrorResponse } from '@angular/common/http';
-import { ProductModel } from '../Models/ProductModel';
+import { ProductModel, ApiResponse } from '../Models/ProductModel';
 
 
 @Injectable({
@@ -24,15 +24,14 @@ export class ProductService {
         catchError(this.handleError));
   }
 
-  GetAllProducts(): Observable<any> {
-    return this.httpClient.get(`${this.url + this.apiRoute}/Product/getProducts`)
+  GetAllProducts(): Observable<ApiResponse<Array<ProductModel>>> {
+    return this.httpClient.get<ApiResponse<Array<ProductModel>>>(`${this.url + this.apiRoute}/Product/getProducts`)
       .pipe(
         catchError(this.handleError));
   }
 
-
-  GetOneProduct(productId: any): Observable<any> {
-    return this.httpClient.get(`${this.url + this.apiRoute}/Product/getProduct/` + productId)
+  GetOneProduct(productId: number): Observable<ApiResponse<ProductModel>> {
+    return this.httpClient.get<ApiResponse<ProductModel>>(`${this.url + this.apiRoute}/Product/getProduct/` + productId)
       .pipe(
         catchError(this.handleError));
   }

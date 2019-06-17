@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
               private router: Router, private bankService: BankService) { }
 
   userId: UserModel = this.authService.currentUserId;
-  role: UserModel = this.authService.userRole;
+  roles: UserModel = this.authService.userRole;
   username: UserModel = this.authService.userName;
   email: UserModel = this.authService.email;
 
@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
     this.updateForm = this.fb.group({
       subAccountName: new FormControl(),
       email: new FormControl({ value: this.email, disabled: true }),
-      roles: new FormControl({ value: this.role, disabled: true }),
+      roles: new FormControl(this.roles),
       fullName: new FormControl({ value: this.username, disabled: true }),
       bankAccount: new FormControl(),
       userId: new FormControl(this.userId),
@@ -51,11 +51,16 @@ export class ProfileComponent implements OnInit {
   getBanks() {
     this.bankService.getBanks().subscribe((response) => {
       const bankItem = new Array();
-      response.data.forEach((element: { bankName: any; bankCode: any; }) => {
+      response.data.forEach((element: { name: any; code: any; }) => {
         bankItem.push({
-          label: element.bankName,
-          value: element.bankCode
+          label: element.name,
+          value: element.code
         });
+      //response.data.forEach((element: { bankName: any; bankCode: any; }) => {
+      //  bankItem.push({
+      //    label: element.bankName,
+      //    value: element.bankCode
+      //  });
       });
       this.banks = bankItem;
     },
@@ -79,18 +84,17 @@ export class ProfileComponent implements OnInit {
     this.isLoading = true;
     this.updateProfile = this.updateForm.value;
     console.log('value', this.updateProfile);
-    // this.bankService.updateProfile(this.updateProfile).subscribe(response => {
-    //   if (response) {
-    //     this.isLoading = false;
-    //     console.log(response);
-    //     if (response.roles === 'Farmer')
-    //     {
-    //       this.router.navigate(['product']);
-    //     }
-    //     this.router.navigate(['/']);
-    //   }
-    // });
+    this.bankService.updateProfile(this.updateProfile).subscribe(response => {
+      if (response) {
+        this.isLoading = false;
+        console.log(response.data.roles);
+        if (response.data.roles === 'Farmer') {
+          this.router.navigate(['/product']);
+        } else {
+          this.router.navigate(['/']);
+        }
+      }
+    });
   }
-
 
 }
